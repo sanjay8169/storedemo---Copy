@@ -1,0 +1,23 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <div>
+        <label>
+          First Name:
+          <input formControlName="fname" placeholder="Your First name" />
+        </label>
+        @if(myForm.get('fname')?.invalid && (myForm.get('fname')?.dirty ||
+        myForm.get('fname')?.touched)) {
+        <div>Please provide a proper fname.</div>
+        }
+      </div>
+      <div>
+        <label>
+          Last Name:
+          <input formControlName="lname" placeholder="Your Last name" />
+        </label>
+        @if(myForm.get('lname')?.invalid && (myForm.get('lname')?.dirty ||
+        myForm.get('lname')?.touched)) {
+        <div>Please provide a proper lname.</div>
+        }
+      </div>
+      <button type="submit" [disabled]="myForm.invalid">Send</button>
+</form>
